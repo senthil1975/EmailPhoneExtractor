@@ -1,0 +1,15 @@
+<div>
+    <h2>Upload a Text File or Paste Text</h2>
+    
+    <!-- File upload option -->
+    <input type="file" #fileInput (change)="onFileSelected($event)" accept=".txt" />
+  
+    <h3>OR</h3>
+  
+    <!-- Textarea for direct text input -->
+    <textarea [(ngModel)]="textInput" (ngModelChange)="onTextInputChange()" rows="10" cols="50" placeholder="Paste text here"></textarea>
+    
+    <!-- Download CSV button, which also parses textarea input -->
+    <button (click)="downloadCSV()" [disabled]="!textInput.trim() && parsedData.length === 0">Download CSV</button>
+  </div>
+  
